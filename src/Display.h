@@ -9,12 +9,12 @@ public:
     Display() : GxEPD2_BW<WatchyDisplay, WatchyDisplay::HEIGHT>(WatchyDisplay()) {
     }
 
-    void drawFrontSprite(Pokemon pokemon, int16_t x, int16_t y) {
-        drawBitmap(x, y, getFrontSpriteByName(pokemon), 112, 112, GxEPD_BLACK);
+    void drawFrontSprite(Pokemon pokemon, bool is_japanese) {
+        drawBitmap(87, 0, getFrontSpriteByName(pokemon, is_japanese), 112, 112, GxEPD_BLACK, GxEPD_WHITE);
     }
 
-    void drawBackSprite(Pokemon pokemon, int16_t x, int16_t y) {
-        drawBitmap(x, y, getBackSpriteByName(pokemon), 96, 84, GxEPD_BLACK);
+    void drawBackSprite(Pokemon pokemon) {
+        drawBitmap(0, 64, getBackSpriteByName(pokemon), 96, 84, GxEPD_BLACK, GxEPD_WHITE);
     }
 
     void drawFullScreen(const uint8_t bitmap[]) {

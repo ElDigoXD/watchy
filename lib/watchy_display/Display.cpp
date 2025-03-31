@@ -22,6 +22,7 @@ void WatchyDisplay::busyCallback(const void *) {
     gpio_wakeup_enable((gpio_num_t) DISPLAY_BUSY, GPIO_INTR_LOW_LEVEL);
     esp_sleep_enable_gpio_wakeup();
     esp_light_sleep_start();
+    esp_sleep_disable_wakeup_source(ESP_SLEEP_WAKEUP_GPIO);
 }
 
 WatchyDisplay::WatchyDisplay() :
